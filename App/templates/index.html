@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Traffic Light</title>
+    <style>
+        body { background: black; color: white; text-align: center; font-family: Arial; }
+        .traffic-box { width: 120px; margin: 20px auto; padding: 10px; border: 3px solid white; border-radius: 10px; }
+        .light { width: 60px; height: 60px; margin: 15px auto; border-radius: 50%; background: grey; }
+        .red.active { background: red; box-shadow: 0 0 20px red; }
+        .yellow.active { background: yellow; box-shadow: 0 0 20px yellow; }
+        .green.active { background: lime; box-shadow: 0 0 20px lime; }
+        button { font-size: 16px; margin: 10px; padding: 10px 20px; border-radius: 8px; border: none; cursor: pointer; }
+        button.red { background: red; color: white; }
+        button.yellow { background: orange; color: black; }
+        button.green { background: lime; color: black; }
+        h2 { margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <h1>🚦 Traffic Light</h1>
+    <div class="traffic-box">
+        <div class="light red {{ 'active' if active=='RED' else '' }}"></div>
+        <div class="light yellow {{ 'active' if active=='YELLOW' else '' }}"></div>
+        <div class="light green {{ 'active' if active=='GREEN' else '' }}"></div>
+    </div>
+    <form method="POST">
+        <button class="red" name="color" value="RED">RED</button>
+        <button class="yellow" name="color" value="YELLOW">YELLOW</button>
+        <button class="green" name="color" value="GREEN">GREEN</button>
+    </form>
+    <h2>{{ message }}</h2>
+</body>
+</html>
